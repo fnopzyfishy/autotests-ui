@@ -7,6 +7,8 @@ from components.courses.create_course_toolbar_view_component import CreateCourse
 from components.navigation.navbar_component import NavbarComponent
 from components.views.empty_view_component import EmptyViewComponent
 from components.views.image_upload_widget_component import ImageUploadWidgetComponent
+from elements.button import Button
+from elements.text import Text
 from pages.base_page import BasePage
 
 
@@ -22,21 +24,21 @@ class CreateCoursePage(BasePage):
         self.create_course_toolbar = CreateCourseToolbarViewComponent(page)
         self.create_course_exercises_toolbar = CreateCourseExercisesToolbarViewComponent(page)
 
-        self.create_course_title = page.get_by_test_id('create-course-toolbar-title-text')
-        self.create_course_button = page.get_by_test_id('create-course-toolbar-create-course-button')
+        self.create_course_title = Text(page, 'create-course-toolbar-title-text', 'Create course')
+        self.create_course_button = Button(page, 'create-course-toolbar-title-text', 'Create course button')
 
     def check_visible_create_course_title(self):
-        expect(self.create_course_title).to_be_visible()
-        expect(self.create_course_title).to_have_text('Create course')
+        self.create_course_title.check_visible()
+        self.create_course_title.check_have_text('Create course')
 
     def click_create_course_button(self):
         self.create_course_button.click()
 
     def check_visible_create_course_button(self):
-        expect(self.create_course_button).to_be_visible()
+        self.create_course_button.check_visible()
 
     def check_disabled_create_course_button(self):
-        expect(self.create_course_button).to_be_disabled()
+        self.create_course_button.check_disabled()
 
     def check_visible_exercises_empty_view(self):
         self.exercises_empty_view.check_visible(

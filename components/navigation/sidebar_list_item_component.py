@@ -1,6 +1,6 @@
 from typing import Pattern
 
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 
 from components.base_component import BaseComponent
 from elements.button import Button
