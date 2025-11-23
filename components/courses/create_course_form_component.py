@@ -24,13 +24,13 @@ class CreateCourseFormComponent(BaseComponent):
 
     def check_visible(self, title, estimated_time, description, max_score, min_score):
         self.title_input.check_visible()
-        self.title_input.check_have_text(title)
+        self.title_input.check_have_value(title)
 
         self.estimated_time_input.check_visible()
         self.estimated_time_input.check_have_value(estimated_time)
 
         self.description_textarea.check_visible()
-        self.description_textarea.check_have_text(description)
+        self.description_textarea.check_have_value(description)
 
         self.max_score_input.check_visible()
         self.max_score_input.check_have_value(max_score)

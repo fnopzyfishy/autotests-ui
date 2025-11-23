@@ -25,7 +25,7 @@ class CreateCoursePage(BasePage):
         self.create_course_exercises_toolbar = CreateCourseExercisesToolbarViewComponent(page)
 
         self.create_course_title = Text(page, 'create-course-toolbar-title-text', 'Create course')
-        self.create_course_button = Button(page, 'create-course-toolbar-title-text', 'Create course button')
+        self.create_course_button = Button(page, 'create-course-toolbar-create-course-button', 'Create course button')
 
     def check_visible_create_course_title(self):
         self.create_course_title.check_visible()
