@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page
 
 from components.charts.chart_view_component import ChartViewComponent
@@ -18,7 +19,7 @@ class DashboardPage(BasePage):
         self.courses_pie_chart = ChartViewComponent(page, 'courses', 'pie')
         self.scores_scatter_chart = ChartViewComponent(page, 'scores', 'scatter')
         self.dashboard_toolbar = DashboardToolbarViewComponent(page)
-    
+
     def check_visible_scores_chart(self):
         self.scores_scatter_chart.check_visible("Scores")
 
