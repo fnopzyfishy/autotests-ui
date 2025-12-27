@@ -1,4 +1,4 @@
-#config.py
+# config.py
 from enum import Enum
 from typing import Self
 
@@ -24,9 +24,9 @@ class TestData(BaseModel):
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=".env",  # Указываем, из какого файла читать настройки
-        env_file_encoding="utf-8",  # Указываем кодировку файла
-        env_nested_delimiter=".",  # Указываем разделитель для вложенных переменных
+        env_file=".env",
+        env_file_encoding="utf-8",
+        env_nested_delimiter=".",
     )
 
     app_url: HttpUrl
@@ -37,6 +37,9 @@ class Settings(BaseSettings):
     videos_dir: DirectoryPath
     tracing_dir: DirectoryPath
     browser_state_file: FilePath
+    
+    def get_base_url(self) -> str:
+        return f"{self.app_url}/"
     
     @classmethod
     def initialize(cls) -> Self:
@@ -53,5 +56,6 @@ class Settings(BaseSettings):
             tracing_dir=tracing_dir,
             browser_state_file=browser_state_file
         )
+
 
 settings = Settings.initialize()
